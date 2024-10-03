@@ -1,0 +1,228 @@
+% Copyright 2018 by Zhibo Wang
+%
+% This file may be distributed and/or modified
+% under the LaTeX Project Public License
+
+
+\definecolor{beamer@simple@color}{RGB}{12 72 66} % bluegreen
+\DeclareOptionBeamer{gray}{\definecolor{beamer@simple@color}{gray}{#1}}
+\DeclareOptionBeamer{rgb}{\definecolor{beamer@simple@color}{rgb}{#1}}
+\DeclareOptionBeamer{RGB}[{12 72 0}]{\definecolor{beamer@simple@color}{RGB}{#1}}
+\DeclareOptionBeamer{HTML}{\definecolor{beamer@simple@color}{HTML}{#1}}
+\DeclareOptionBeamer{cmyk}{\definecolor{beamer@simple@color}{cmyk}{#1}}
+\DeclareOptionBeamer{cmy}{\definecolor{beamer@simple@color}{cmy}{#1}}
+\DeclareOptionBeamer{named}{\definecolor{beamer@simple@color}{named}{#1}}
+\DeclareOptionBeamer{hsb}{\definecolor{beamer@simple@color}{hsb}{#1}}
+\ProcessOptionsBeamer
+
+% footline
+% delete navigation below
+\setbeamertemplate{navigation symbols}{}
+% define footline
+% \makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.38\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+        \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}
+
+    \begin{beamercolorbox}[wd=.62\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}
+
+    % \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    %     \usebeamerfont{title in head/foot}\insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+    % \end{beamercolorbox}
+  }
+
+  \vskip0pt%
+}
+\useoutertheme{tree}
+\makeatletter
+\setbeamertemplate{headline}
+{%
+    \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}
+      \usebeamerfont{title in head/foot}\insertshorttitle
+      \usebeamerfont{section in head/foot}%
+      \ifbeamer@tree@showhooks
+        \setbox\beamer@tempbox=\hbox{\insertsectionhead}%
+        \ifdim\wd\beamer@tempbox>1pt%
+          \hskip2pt\raise1.9pt\hbox{\vrule width 5pt height0.4pt}%
+          \hskip1pt%
+        \fi%
+      \else%  
+        \hskip6pt%
+      \fi%
+      \insertsectionhead
+      \usebeamerfont{subsection in head/foot}%
+      \ifbeamer@tree@showhooks
+        \setbox\beamer@tempbox=\hbox{\insertsubsectionhead}%
+        \ifdim\wd\beamer@tempbox>1pt%
+          \hskip2pt\raise1.9pt\hbox{\vrule width 5pt height0.4pt}%
+          \hskip1pt%
+        \fi%
+      \else%  
+        \hskip12pt%
+      \fi%
+      \insertsubsectionhead\hfill\insertframenumber/\inserttotalframenumber\hspace{0.5em}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth,colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+\makeatother
+% \makeatletter
+% footline color
+\setbeamercolor{author in head/foot}{fg=black, bg=mygrey!5!white}
+\setbeamercolor{title in head/foot}{fg=black, bg=mygrey!5!white}
+
+% item settings
+\setbeamertemplate{itemize item}{$\color{beamer@simple@color}\bullet$}
+\setbeamertemplate{itemize subitem}{$\color{beamer@simple@color}\bullet$}
+\setbeamertemplate{enumerate items}[square]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[square]
+
+
+
+% color definition
+\definecolor{mygrey}{rgb}{0.52, 0.52, 0.51}
+
+\setbeamercolor{structure}{fg=beamer@simple@color, bg=mygrey!10!white}
+\setbeamercolor{frametitle}{fg=beamer@simple@color, bg=white}
+\setbeamercolor{block title}{bg=mygrey!14!white}
+\setbeamercolor{block body}{fg=black,bg=mygrey!10!white}
+\setbeamercolor{block body alerted}{bg=white}
+\setbeamercolor{block title alerted}{fg=beamer@simple@color,bg=white}
+\setbeamercolor{alerted text}{fg=beamer@simple@color}
+\setbeamerfont{block title alerted}{series=\mdseries}
+\setbeamerfont{alerted text}{series=\bfseries\boldmath}
+\hypersetup{colorlinks,linkcolor=,urlcolor=beamer@simple@color!80!white}
+\usefonttheme[onlymath]{serif}
+\setbeamerfont{frametitle}{series=\bfseries\boldmath}
+\setbeamerfont{block title}{series=\bfseries\boldmath}
+\setbeamerfont{title}{series=\bfseries\boldmath}
+\setbeamertemplate{frametitle}{\insertframetitle\par\vskip-8pt\hrulefill} % add line under frametitle
+
+% % metropolis
+% % \definecolor{beamer@simple@color}{RGB}{35 54 58}
+% % no outer theme
+% \setbeamerfont{frametitle}{series=\bfseries}
+% \setbeamercolor{frametitle}{fg=white, bg=beamer@simple@color}
+% \setbeamerfont{block title}{series=\bfseries}
+% \setbeamerfont{block title alerted}{series=\bfseries}
+% \definecolor{alertcol}{RGB}{232 133 52}
+% \setbeamercolor{block title alerted}{fg=alertcol,bg=white}
+% \setbeamerfont{alerted text}{series=\mdseries}
+% \setbeamercolor{alerted text}{fg=alertcol}
+\setbeamercolor{block title}{bg=mygrey!25!white}
+\setbeamercolor{block body}{fg=black,bg=mygrey!13!white}
+
+
+
+% ----------------------------------------------------------------------
+%  Simple math stuff
+% ----------------------------------------------------------------------
+\renewcommand{\subset}{\subseteq}
+% ---- SYMBOLS ----
+\let\e\varepsilon               % a ``real'' epsilon — better yet, just use Unicode ε.
+%
+%  I give up.  These are in the wrong font, but my kludged versions 
+%  LOOK like kludges, especially \Z, \Q, and \C.
+%
+\def\Real{\mathbb{R}}
+\def\Proj{\mathbb{P}}
+\def\Hyper{\mathbb{H}}
+\def\Integer{\mathbb{Z}}
+\def\Natural{\mathbb{N}}
+\def\Complex{\mathbb{C}}
+\def\Rational{\mathbb{Q}}
+
+\let\N\Natural
+\let\Q\Rational
+\let\R\Real
+\let\Z\Integer
+\def\Rd{\Real^d}
+\def\RP{\Real\Proj}
+\def\CP{\Complex\Proj}
+
+
+
+% ---- OPERATORS (requires amsmath) ----
+\def\aff{\operatorname{aff}}        
+\def\area{\operatorname{area}}
+\def\argmax{\operatornamewithlimits{arg\,max}}
+\def\argmin{\operatornamewithlimits{arg\,min}}
+\def\Aut{\operatorname{Aut}}        % Automorphism group
+\def\card{\operatorname{card}}  % cardinality, deprecated for \abs
+\def\conv{\operatorname{conv}}  
+\def\E{\operatorname{E}}            % Expectation: $\E[X]$ (like \Pr)
+\def\EE{\operatornamewithlimits{E}}
+\def\Hom{\operatorname{Hom}}        % Homomorphism group
+\def\id{\operatorname{id}}      % identity
+\def\im{\operatorname{im}}      % image
+\def\lcm{\operatorname{lcm}}
+\def\lfs{\operatorname{lfs}}        % local feature size
+\def\poly{\operatorname{poly}}
+\def\polylog{\operatorname{polylog}}
+\def\rank{\operatorname{rank}}
+\def\rel{\operatorname{rel\,}}  % relative (interior, boundary, etc.)
+\def\sgn{\operatorname{sgn}}
+\def\vol{\operatorname{vol}}        % volume
+
+\def\fp#1{^{\underline{#1}}}        % falling powers: $n\fp{d}$
+\def\rp#1{^{\overline{#1}}}     % rising powers:  $n\rp{d}$
+
+\def\setsymdiff{\operatorname{\triangle}}
+% % --- Darts and fences ---
+% % less nice replacements for stmaryrd characters
+% \@ifundefined{shortrightarrow}{\let\shortrightarrow\rightarrow}{}
+% \@ifundefined{shortleftarrow}{\let\shortleftarrow\leftarrow}{}
+% \@ifundefined{shortuparrow}{\let\shortuparrow\uparrow}{}
+% \@ifundefined{shortdownarrow}{\let\shortdownarrow\downarrow}{}
+
+\def\arcto{\mathord\shortrightarrow}
+\def\arcfrom{\mathord\shortleftarrow}
+\def\arc#1#2{#1\arcto#2}
+\def\cra#1#2{#1\mathord\shortleftarrow#2}
+\def\fence#1#2{#1\mathord\shortuparrow#2}
+\def\ecnef#1#2{#1\mathord\shortdownarrow#2}
+
+% --- Cheap displaystyle operators ---
+\def\Frac#1#2{{\displaystyle\frac{#1}{#2}}}
+\def\Sum{\sum\limits}
+\def\Prod{\prod\limits}
+\def\Union{\bigcup\limits}
+\def\Inter{\bigcap\limits}
+\def\Lor{\bigvee\limits}
+\def\Land{\bigwedge\limits}
+\def\Lim{\lim\limits}
+\def\Max{\max\limits}
+\def\Min{\min\limits}
+
+% ---- RELATORS ----
+\def\deq{\stackrel{\scriptscriptstyle\triangle}{=}} % Use := instead.
+\def\into{\DOTSB\hookrightarrow}        % = one-to-one
+\def\onto{\DOTSB\twoheadrightarrow}
+\def\inonto{\DOTSB\lhook\joinrel\twoheadrightarrow}
+\def\from{\leftarrow}
+\def\tofrom{\leftrightarrow}
+\def\mapsfrom{\mathrel{\reflectbox{$\mapsto$}}}
+\def\longmapsfrom{\mathrel{\reflectbox{$\longmapsto$}}}
+
+% ---- DELIMITER PAIRS ----
+% --- always self-scaling delmiter pairs ---
+\def\set#1{\left\{ #1 \right\}}
+\def\floor#1{\left\lfloor #1 \right\rfloor}
+\def\ceil#1{\left\lceil #1 \right\rceil}
+\def\seq#1{\left\langle #1 \right\rangle}
+\def\abs#1{\left| #1 \right|}
+\def\norm#1{\left\| #1 \right\|}
+\def\paren#1{\left( #1 \right)}     % need better macro name!
+\def\brack#1{\left[ #1 \right]}     % need better macro name!
+\def\indic#1{\left[ #1 \right]}     % indicator variable; Iverson notation
+
