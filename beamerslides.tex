@@ -150,7 +150,9 @@ However, observe that in our problem the piecewise linear convex function is not
         Given two lines through the origin with slopes of opposite sign, knowing which quadrant $x^*$ lies in allows us to locate it with respect to at least one of the lines.
     \end{lemma}
     \newpage
-    {\scriptsize Divide the set of $n$ hyperplanes into 2 sets $S_1,S_2$. Compute the intersection of $x_1x_2$ plane and hyperplane $H$. Assume that $\forall H$ the intersection is a line $l_H$. $H\in S_1$ iff $l_H$ has positive slope. Otherwise $l_H\in S_2$. We further assume that $|S_1|=|S_2|=n/2$.}
+    Let $l_H$ be the intersection of hyperplane $H$ and $x_1x_2$ plane.
+    Compute a partition $S_1\sqcup S_2=\mathcal H$. 
+    $H\in S_1$ iff $l_H$ has positive slope. Otherwise $l_H\in S_2$. We further assume that $|S_1|=|S_2|=n/2$.
     \noindent
     \begin{minipage}[t]{.5\textwidth}
     \begin{figure}
@@ -184,6 +186,8 @@ However, observe that in our problem the piecewise linear convex function is not
     Note that our linear program is not exactly the same as low dimension LP.
 \end{frame}
 
+\section{Possible Improvements}
+
 \begin{frame}{Other algorithms for fixed dimension LP}
     \begin{figure}
         \centering
@@ -193,10 +197,14 @@ However, observe that in our problem the piecewise linear convex function is not
     \textbf{Question. Can we use faster fixed dimension LP algorithms to get better complexity?}
 \end{frame}
 
-\section{possible methods}
-
-\begin{frame}{aggregate the pwl convex functions}
+\begin{frame}{LP type problem}
     
+\end{frame}
+
+
+
+\begin{frame}{Aggregate the pwl convex functions}
+    % blog posts
 \end{frame}
 
 \end{document}
