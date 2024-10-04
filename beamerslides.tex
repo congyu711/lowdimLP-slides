@@ -1,21 +1,4 @@
 \documentclass{beamer}
-\usepackage[english]{babel}
-\usepackage{fancyhdr}        % header footer
-\usepackage{graphicx}        % figure
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{bookmark}
-\usepackage{hyperref}
-\usepackage{graphicx} % Allows including images
-\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
-\usepackage{tikz}
-\usetikzlibrary{backgrounds}
-\usetikzlibrary{arrows,shapes}
-\usetikzlibrary{tikzmark} % for \tikzmarknode
-\usetikzlibrary{calc} % for computing the midpoint between two nodes, e.g. at ($(p1.north)!0.5!(p2.north)$) 
-\usepackage[ruled,linesnumbered]{algorithm2e}
-\usepackage{adjustbox}
-\usepackage{subcaption}
 
 \author{Yu Cong}
 \title[Minimizing sum of pwl convex function]{Minimizing the Sum of Piecewise Linear Convex Functions}
@@ -36,6 +19,7 @@
 \end{frame}
 
 \begin{frame}[plain]{Plan}
+    \mybox[oliver!10]{\scriptsize The order of the slides is basically the order in which I think about this problem.}
     \tableofcontents
 \end{frame}
 
@@ -183,7 +167,14 @@ However, observe that in our problem the piecewise linear convex function is not
     with solution $T(n,d)=O(2^{2^d}n)$.
 \end{frame}
 \begin{frame}{Zemel's conversion}
-    Note that our linear program is not exactly the same as low dimension LP.
+    Our linear program has \emph{dimension} $n+d$. \href{https://www.sciencedirect.com/science/article/abs/pii/0020019084900140}{Zemel} showed that this kind of problem can be converted to a linear program of dimension $d$.
+    \begin{align*}
+        \min &\sum_{i=1}^n f_i\\
+        s.t. \quad f_i&\geq \alpha_j(a_i\cdot x -b_i)-\beta_j \quad \forall i\in[n], \forall j\\
+    \end{align*}
+    \mybox[oliver!20]{
+        \scriptsize Here is an intuitive way to understand the conversion. One can think the LP above as a $d$-dimensional search problem with $n+d$ hyperplanes. However, the oracle is quite different. The oracle takes the unknown $x^*$ and a hyperplane $H$ as input, returns the relative position by computing the minimal $f_i$.
+    }
 \end{frame}
 
 \section{Possible Improvements}
@@ -194,11 +185,29 @@ However, observe that in our problem the piecewise linear convex function is not
         \includegraphics[width=\textwidth]{images/table.png}
         \caption{Algorithms for LP in low dimensions \footnote{table stolen from \url{https://dl.acm.org/doi/10.1145/3155312}}}
     \end{figure}
-    \textbf{Question. Can we use faster fixed dimension LP algorithms to get better complexity?}
+    \textbf{Can we use faster fixed dimension LP algorithms to get better complexity?}
 \end{frame}
 
-\begin{frame}{LP type problem}
+\begin{frame}[allowframebreaks]{LP-type problem}
+    Algorithms for low dim LP are actually solving a more abstract problem.
+    \begin{definition}[LP-type problem]
+        Given a set $S$ and a function $f:S\to \R$. $f$ satisfies two properties:%
+        \begin{itemize}
+            \item Monotonicity: $\forall A\subseteq B\subseteq S, f(A)\leq f(B)\leq f(S)$.
+            \item Locality: $\forall A\subseteq B\subseteq S$ and $\forall x\in S$, if $f(A) = f(B) = f(A \cup \{x\})$, then $f(A) = f(B \cup \{x\})$.
+        \end{itemize}
+    \end{definition}
+    Linear programs(minimization) are LP-type problems.
+
+    $B\subseteq S$ is a basis if $\forall B'\subsetneq B, f(B')<f(B)$. A set of `useful' constraints in a linear program is a basis.
+
+    The combinatorial dimension is the size of the largest basis.
+
+    If a LP problem has low dimension, then its combinatorial dimension is low. \textbf{What about the converse?}
+    \newpage
+    \textbf{Does our LP has low combinatorial dimension?}
     
+    No! A basis contains at least $n$ constraints since otherwise some $f_i$ is unbounded.
 \end{frame}
 
 
