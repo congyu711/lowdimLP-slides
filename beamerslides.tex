@@ -19,7 +19,6 @@
 \end{frame}
 
 \begin{frame}[plain]{Plan}
-    \mybox[oliver!10]{\scriptsize The order of the slides is basically the order in which I think about this problem.}
     \tableofcontents
 \end{frame}
 
@@ -33,13 +32,13 @@
     \begin{subfigure}{.5\textwidth}
       \centering
       \includegraphics[width=.4\linewidth]{images/Piecewise_linear_function.svg.png}
-      \caption{A 1D piecewise linear function with 4 line segments and 3 breakpoints}
+      \caption{A 1D pwl function with 4 line segments and 3 breakpoints}
       \label{fig:sub1}
     \end{subfigure}%
     \begin{subfigure}{.5\textwidth}
       \centering
       \includegraphics[width=.4\linewidth]{images/Piecewise_linear_function2D.png}
-      \caption{A 2D piecewise concave function}
+      \caption{A 2D pwl concave function}
       \label{fig:sub2}
     \end{subfigure}
     % \caption{A figure with two subfigures}
@@ -205,15 +204,25 @@ However, observe that in our problem the piecewise linear convex function is not
 
     If a LP problem has low dimension, then its combinatorial dimension is low. \textbf{What about the converse?}
     \newpage
+    \begin{align*}
+        \min &\sum_{i=1}^n f_i\\
+        s.t. \quad f_i&\geq \alpha_j(a_i\cdot x -b_i)-\beta_j \quad \forall i\in[n], \forall j\\
+        &\cdots
+    \end{align*}%
     \textbf{Does our LP has low combinatorial dimension?}
     
-    No! A basis contains at least $n$ constraints since otherwise some $f_i$ is unbounded.
+    No. A basis contains at least $n$ constraints since otherwise some $f_i$ is unbounded.
+
+    \begin{problem}
+        Is it possible to formulate the pwl convex minimization problem as an LP-type problem with low combinatorial dimension?
+    \end{problem}
 \end{frame}
 
 
 
 \begin{frame}{Aggregate the pwl convex functions}
     % blog posts
+    The sum of pwl convex functions are still pwl convex.
 \end{frame}
 
 \end{document}
