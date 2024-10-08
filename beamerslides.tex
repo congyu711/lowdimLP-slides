@@ -9,7 +9,7 @@
 %     subsectionstyle=show/show/shaded]}
 % }
     
-\usetheme{Simple}
+\input{BeamerTheme/beamerthemeSimple.sty}
 % \useoutertheme{tree}
     
 \begin{document}
@@ -92,9 +92,11 @@ However, observe that in our problem the piecewise linear convex function is not
 \end{frame}
 
 \section{LP in Low Dimensions}
-\begin{frame}[allowframebreaks]{Megiddo's algorithm}
-    {\tiny \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}}
-
+\begin{frame}[allowframebreaks]{Megiddo's algorithm}%
+    \mybox[oliver!20]{
+        \tiny
+        \url{https://people.inf.ethz.ch/gaertner/subdir/texts/own_work/chap50-fin.pdf}
+    }
     The dimension $d$ (in our problem, the dimension of $x$) is small while the number of constraints are huge. We need only $d$ linearly independent tight constraints to identify the optimal solution $x^*$.
     Thus most of the constraints are useless.
     \BlankLine
@@ -166,13 +168,14 @@ However, observe that in our problem the piecewise linear convex function is not
     with solution $T(n,d)=O(2^{2^d}n)$.
 \end{frame}
 \begin{frame}{Zemel's conversion}
-    Our linear program has \emph{dimension} $n+d$. \href{https://www.sciencedirect.com/science/article/abs/pii/0020019084900140}{Zemel} showed that this kind of problem can be converted to a linear program of dimension $d$.
     \begin{align*}
         \min &\sum_{i=1}^n f_i\\
         s.t. \quad f_i&\geq \alpha_j(a_i\cdot x -b_i)-\beta_j \quad \forall i\in[n], \forall j\\
     \end{align*}
+    Our linear program has \emph{dimension} $n+d$. 
+    \textbf{\href{https://www.sciencedirect.com/science/article/abs/pii/0020019084900140}{Zemel}} showed that this kind of problem can be solved in linear time.
     \mybox[oliver!20]{
-        \scriptsize Here is an intuitive way to understand the conversion. One can think the LP above as a $d$-dimensional search problem with $n+d$ hyperplanes. However, the oracle is quite different. The oracle takes the unknown $x^*$ and a hyperplane $H$ as input, returns the relative position by computing the minimal $f_i$.
+        This is a \emph{$d$-dimensional search problem} with $n+d$ hyperplanes.
     }
 \end{frame}
 
@@ -222,7 +225,8 @@ However, observe that in our problem the piecewise linear convex function is not
 
 \begin{frame}{Aggregate the pwl convex functions}
     % blog posts
-    The sum of pwl convex functions are still pwl convex.
+    The sum of pwl convex functions are still pwl convex. 
+    \newline If we can compute $F=\sum f_i$ in $O(m)$ and the number of line segments on $F$ is also $O(m)$, then the corresponding LP will have low combinatorial dimension.
 \end{frame}
 
 \end{document}
