@@ -1,0 +1,4 @@
+[submodule "BeamerTheme"]
+	path = BeamerTheme
+	url = git@github.com:congyu711/BeamerTheme.git
+	branch = dev
