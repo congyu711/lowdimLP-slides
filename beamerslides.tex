@@ -227,6 +227,16 @@ However, observe that in our problem the piecewise linear convex function is not
     % blog posts
     The sum of pwl convex functions are still pwl convex. 
     \newline If we can compute $F=\sum f_i$ in $O(m)$ and the number of line segments on $F$ is also $O(m)$, then the corresponding LP will have low combinatorial dimension.
+    \begin{align*}
+        \min \quad F\\
+        s.t. \quad F&\geq \alpha_j\cdot x -\beta_j \quad \forall j\\
+        &\cdots
+    \end{align*}
+    However, this is not possible for general pwl convex functions in $\R^d$.\footnote{see this \href{https://talldoor.uk/posts/2024-09-16-piecewise-linear.html}{blog post} for detail.}
+\end{frame}
+
+\begin{frame}{Compress the dimension}
+    \href{https://arxiv.org/pdf/1307.5697}{Dimension reduction via colour refinement}
 \end{frame}
 
 \end{document}
