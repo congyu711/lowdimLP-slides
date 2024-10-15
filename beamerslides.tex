@@ -163,7 +163,7 @@ However, observe that in our problem the piecewise linear convex function is not
     \end{enumerate}
     This gives the recurrence
     \[
-        T(n,d)\leq 3\cdot 2^{d-1}T(n,d-1)+T((1-2^{1-2^d})n,d)+O(nd)
+        T(n,d)\leq 3\cdot 2^{d-1}T(n,d-1)+T((1-2^{-(1-2^d)})n,d)+O(nd)
     \]
     with solution $T(n,d)=O(2^{2^d}n)$.
 \end{frame}
@@ -236,7 +236,7 @@ However, observe that in our problem the piecewise linear convex function is not
 \end{frame}
 
 \begin{frame}{Compress the dimension}
-    % \href{https://arxiv.org/pdf/1307.5697}{Dimension reduction via colour refinement}
+    \href{https://arxiv.org/pdf/1307.5697}{Dimension reduction via colour refinement}
 \end{frame}
 
 \end{document}
